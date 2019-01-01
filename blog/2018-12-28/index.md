@@ -7,7 +7,7 @@ category: "Hacking"
 
 Today I received an interesting phishing email.
 <br />
-I did the research and found out it's actually a good learning case,
+I did the research and found out it's actually a good learning opportunity,
 since attacker's server demonstrates excellent practice in network security.
 <br />
 Today's goal is to attack phishing server by mimicking victims.

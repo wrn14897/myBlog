@@ -1,68 +1,63 @@
 ---
 date: "2018-12-30"
-title: "Security"
-category: "Hacking"
+title: "Ciphers"
+category: "Security"
 ---
-
-Yesterday I received an interesting phishing email.
-I did the research about it and found out it's a good learning example.
-
-Below is the email content
-
-<b>TITLE:</b> RE: Wrn ,protect your sensitive data from unauthorized access
+To list some basic ciphers 
+## One Time Pad
+> Key has the same length, or longer than, the message being sent.
 <br />
-<b>FROM:</b> goer.vassaux05@ingame.de
+Its secure against one-time ciphertext-only attack. (Shannon, 1949)
+
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/OTP-diagram.jpg)
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/OTP-math.jpg)
 
 
-```js
-(function() {
+## Stream Cipher
+> OTP key is as long the message. 
+<br />
+Why not using a shorter pseudo‐random key to generate stream ciphertext ?
 
-var cache = {};
-var form = $('form');
-var minified = true;
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-diagram.jpg)
+<br />
+However,
+Stream Cipher is not perfect. There are two things to keep in mind.
+1. Key can only be used for single message.
+Below is the diagram shows why
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-attack-1.jpg)
 
-var dependencies = {};
+2. No integrity: ciphertext can be modified in meaningful ways.
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-attack-2.jpg)
 
-var treeURL = 'https://api.github.com/repos/PrismJS/prism/git/trees/gh-pages?recursive=1';
-var treePromise = new Promise(function(resolve) {
-	$u.xhr({
-		url: treeURL,
-		callback: function(xhr) {
-			if (xhr.status < 400) {
-				resolve(JSON.parse(xhr.responseText).tree);
-			}
-		}
-	});
-});
-```
+## Block Cipher
+> A block cipher takes a block of plaintext bits and generates a block of ciphertext bits, generally of same size. The size of block is fixed in the given scheme. The choice of block size does not directly affect to the strength of encryption scheme. The strength of cipher depends up on the key length.
 
-Zwei flinke Boxer jagen die quir
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/block-cipher-idea.jpg)
 
-```md
-# asdfasdfads
-- auesufuaus
-```
+It might sound straightforward to implement by simply dividing input text into blocks and applying hash functions.
+But its not correct.
+<br />
+For example,
+<br />
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/example-ecb.jpg)
+<br />
+Also,
+what if we encrypt the same message twice ? Can attacker learn the fact these two messages are actually the same ?
+<br />
+To solve issues above, <b>nonce-based encryption</b> and <b>cipher block chaining (CBC)</b> come to play 
 
-```css
-code[class*="language-"],
-pre[class*="language-"] {
-	color: black;
-	background: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
+### nonce-based Encryption
+> nonce n: a value that changes from msg to msg. (k,n) pair never used more than once
 
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/nonce-based-encryption.jpg)
+1. Method 1: encryptor chooses a random nonce (e.g. 128 bits)
+2. Method 2: nonce is a counter (e.g. packet counter)
 
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-```
+### Cipher Block Chaining
+> Cipher block chaining (CBC) is a mode of operation for a block cipher (one in which a sequence of bits are encrypted as a single unit or block with a cipher key applied to the entire block). Cipher block chaining uses what is known as an initialization vector (IV) of a certain length. One of its key characteristics is that it uses a chaining mechanism that causes the decryption of a block of ciphertext to depend on all the preceding ciphertext blocks. As a result, the entire validity of all preceding blocks is contained in the immediately previous ciphertext block.
+
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/CBC-diagram.jpg)
+
+FYI, the counter mode, which speeds up the encryption process by 
+leveraging threads.
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/CTR-diagram.jpg)
