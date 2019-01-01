@@ -22,6 +22,7 @@ const SEO = props => {
   }
   image = config.siteUrl + realPrefix + image;
   const blogURL = config.siteUrl + config.pathPrefix;
+  console.log(image);
   const schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
@@ -84,7 +85,7 @@ const SEO = props => {
       <meta name="twitter:url" content={config.siteUrl} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <link rel="icon" type="image/png" href={image} sizes="32x32" />
+      <link rel="icon" type="image/png" href={config.siteBanner} sizes="32x32" />
     </Helmet>
   );
 };
