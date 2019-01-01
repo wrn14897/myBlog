@@ -4,6 +4,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import { FaGithub, FaAngellist } from 'react-icons/fa';
+import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import SEO from '../components/SEO';
 import theme from '../../config/Theme';
 import { media } from '../utils/media';
@@ -96,6 +97,7 @@ const Layout = props => {
               </div>
               <span>Last build: {data.site.buildTime}</span>
             </Footer>;
+            <ScrollUpButton />
           </React.Fragment>
         </ThemeProvider>
       )}
