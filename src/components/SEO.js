@@ -84,6 +84,7 @@ const SEO = props => {
       <meta name="twitter:url" content={config.siteUrl} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      <link rel="icon" type="image/png" href={image} sizes="32x32" />
     </Helmet>
   );
 };

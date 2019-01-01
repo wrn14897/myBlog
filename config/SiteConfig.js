@@ -5,8 +5,8 @@ module.exports = {
   siteTitleAlt: '', // Alternative Site title for SEO
   siteUrl: 'https://warrenjonhowlee.netlify.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
-  siteBanner: '/social/banner.jpg',
-  siteDescription: 'Minimal Blog with big typography',
+  siteBanner: '/social/banner.png',
+  siteDescription: 'Warren Codes',
 
   siteFBAppID: '123456789', // Facebook App ID
   userTwitter: '@minimal', // Twitter Username
