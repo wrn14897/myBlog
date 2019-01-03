@@ -18,7 +18,7 @@ void func(char *str) {
 ```
 Let's look at the stack
 <div>
-  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack1.jpg' style="height: 50%; width:50%">
+  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack1.jpg' style="height: 80%; width:80%">
 </div>
 When func is called, a stack frame is created for this function.
 <br />
@@ -34,7 +34,7 @@ buf is initialized as size od 128 bytes, and strcpy will copy the input string i
 
 The input string would overflow the buffer and overwrite return address.
 <div>
-  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack2.jpg' style="height: 50%; width:50%">
+  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack2.jpg' style="height: 80%; width:80%">
 </div>
 <br />
 So this function is not gonna return where its supposed to return.
@@ -47,7 +47,7 @@ This kinda attack is also called 'Control Hijacking Attack'.
 
 #### SolutionL: NOP slide
 <div>
-  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/NOP-slide.jpg' style="height: 50%; width:50%">
+  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/NOP-slide.jpg' style="height: 60%; width:60%">
 </div>
 <br />
 Since attacker doesn't know the address of program P, 
