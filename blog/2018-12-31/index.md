@@ -1,6 +1,6 @@
 ---
 date: "2018-12-31"
-title: "Buffer Overflows"
+title: "Message Integrity"
 category: "Security"
 ---
 
