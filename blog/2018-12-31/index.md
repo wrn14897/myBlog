@@ -17,8 +17,9 @@ void func(char *str) {
 }
 ```
 Let's look at the stack
-![alt text](https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack1.jpg)
-
+<div>
+  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack1.jpg' style="height: 50%; width:50%">
+</div>
 When func is called, a stack frame is created for this function.
 <br />
 Then the return address is pushed onto the stack.
@@ -26,18 +27,32 @@ Then the return address is pushed onto the stack.
 Stack frame pointer is like linked list, chaining to the top of stack.
 <br />
 buf is initialized as size od 128 bytes, and strcpy will copy the input string into this local buffer.
+<br />
+<br />
+
 > What happens if the argument is more than 128 bytes ?
 
 The input string would overflow the buffer and overwrite return address.
-![alt text](https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack2.jpg)
+<div>
+  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack2.jpg' style="height: 50%; width:50%">
+</div>
 <br />
 So this function is not gonna return where its supposed to return.
 <br />
 This kinda attack is also called 'Control Hijacking Attack'.
-> How does attacker determine return address ?
+<br />
+<br />
+
+> But, how does attacker determine return address ?
 
 #### SolutionL: NOP slide
-![alt text](https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/NOP-slide.jpg)
+<div>
+  <img src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/NOP-slide.jpg' style="height: 50%; width:50%">
+</div>
 <br />
 Since attacker doesn't know the address of program P, 
-what he would do is jump to random address and create a NOP slide (a sequence of no-op operations)
+what he would do is jump to random address and create a NOP slide (a sequence of no-op operations).
+
+And use NOP slides to tell if the overflow hits the target return address.
+
+### Simple Exercise
