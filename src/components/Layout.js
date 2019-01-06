@@ -84,6 +84,7 @@ const Layout = props => {
           <React.Fragment>
             <SEO />
             {children}
+            <ScrollUpButton />
             <Footer>
               &copy; 2018 by Warren. All rights reserved. <br />
               <div>
@@ -97,7 +98,6 @@ const Layout = props => {
               </div>
               <span>Last build: {data.site.buildTime}</span>
             </Footer>;
-            <ScrollUpButton />
           </React.Fragment>
         </ThemeProvider>
       )}
