@@ -11,7 +11,6 @@ module.exports = {
   siteFBAppID: '123456789', // Facebook App ID
   userTwitter: '@minimal', // Twitter Username
   ogSiteName: 'minimal', // Facebook Site Name
-  googleSearchConsole: 'kg34dFUTHxJX_ikP3hZwDgMTkMIYuH6DWDmYZs5e0e',
 
   // Manifest and Progress color
   themeColor: '#3498DB',
