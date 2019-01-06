@@ -22,9 +22,7 @@ Its secure against one-time ciphertext-only attack. (Shannon, 1949)
 <br />
 Why not using a shorter pseudo‐random key to generate stream ciphertext ?
 
-<div>
-  <img src="https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-diagram.jpg" style="height: 80%; width:80%">
-</div>
+![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-diagram.jpg)
 
 However,
 Stream Cipher is not perfect. There are two things to keep in mind.
@@ -35,6 +33,7 @@ Below is the diagram shows why
 </div>
 
 2. No integrity: ciphertext can be modified in meaningful ways.
+
 <div>
   <img src="https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-attack-2.jpg" style="height: 80%; width:80%">
 </div>
