@@ -4,7 +4,7 @@ title: "Ciphers"
 category: "Security"
 ---
 To list some basic ciphers 
-## One Time Pad
+### One Time Pad
 > Key has the same length, or longer than, the message being sent.
 <br />
 Its secure against one-time ciphertext-only attack. (Shannon, 1949)
@@ -17,7 +17,7 @@ Its secure against one-time ciphertext-only attack. (Shannon, 1949)
 ![alt text](https://storage.googleapis.com/warrenlee/myBlog/ciphers/OTP-math.jpg) -->
 
 
-## Stream Cipher
+### Stream Cipher
 > OTP key is as long the message. 
 <br />
 Why not using a shorter pseudo‐random key to generate stream ciphertext ?
@@ -38,7 +38,7 @@ Below is the diagram shows why
   <img src="https://storage.googleapis.com/warrenlee/myBlog/ciphers/stream-cipher-attack-2.jpg" style="height: 80%; width:80%">
 </div>
 
-## Block Cipher
+### Block Cipher
 > A block cipher takes a block of plaintext bits and generates a block of ciphertext bits, generally of same size. The size of block is fixed in the given scheme. The choice of block size does not directly affect to the strength of encryption scheme. The strength of cipher depends up on the key length.
 
 <div>
@@ -63,7 +63,7 @@ To solve issues above, <b>nonce-based encryption</b> and <b>cipher block chainin
 <br />
 <br />
 
-### nonce-based Encryption
+#### nonce-based Encryption
 > nonce n: a value that changes from msg to msg. (k,n) pair never used more than once
 
 <div>
@@ -74,7 +74,7 @@ To solve issues above, <b>nonce-based encryption</b> and <b>cipher block chainin
 2. Method 2: nonce is a counter (e.g. packet counter)
 
 
-### Cipher Block Chaining
+#### Cipher Block Chaining
 > Cipher block chaining (CBC) is a mode of operation for a block cipher (one in which a sequence of bits are encrypted as a single unit or block with a cipher key applied to the entire block). Cipher block chaining uses what is known as an initialization vector (IV) of a certain length. One of its key characteristics is that it uses a chaining mechanism that causes the decryption of a block of ciphertext to depend on all the preceding ciphertext blocks. As a result, the entire validity of all preceding blocks is contained in the immediately previous ciphertext block.
 
 <div>
