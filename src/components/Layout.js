@@ -86,7 +86,7 @@ const Layout = props => {
             {children}
             <ScrollUpButton />
             <Footer>
-              &copy; 2018 by Warren. All rights reserved. <br />
+              &copy; 2019 by Warren. All rights reserved. <br />
               <div>
                 <a href="https://angel.co/wrn14897-hotmail-com" target="__blank">
                   <FaAngellist />
