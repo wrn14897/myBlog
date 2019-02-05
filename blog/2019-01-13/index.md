@@ -14,6 +14,8 @@ Today, we are going to cover some userfule <b>active</b> scan tools.
 
 
 ###Hping
+>Hping is a command-line oriented TCP/IP packet assembler/analyzer.
+
 List of features, including
 + TCP/IP packet analyzer
 + Support TCP, UDP, ICMP
@@ -47,8 +49,9 @@ hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood --rand-source TARGET_
 To test this case, I used Kali (attacker) and OWASP (victim) on VM virtual box.
 ![alt text](https://storage.googleapis.com/warrenlee/myBlog/network%20scan/DoS.png)
 
-From Wireshark, we can see packets 
-
-
+From Wireshark, we can see tons of TCP packets sent from Kali to OWASP server with random source IP address.
 
 ###NMAP
+>Hping is a command-line oriented TCP/IP packet assembler/analyzer.
+
+
