@@ -60,6 +60,7 @@ Once you look at the redirect URL, you would find out the server is a microservi
 Such a beautiful design !!
 <br />
 The attacker leveraged 'serverless' concept and used that to avoid direct attack.
+I guess the domain name would switch time to time within a sub-net system.
 <br />
 #### Cookie
 After making GET request to the redirect server, I received an empty response.
@@ -101,4 +102,18 @@ and I got
 
 > I was thrilled by this result. Its about to make login request
 
-#### Attack Server
+### Client Puzzle Protocol (CPP)
+> CPP is one type of protocol which fights against DDoS / DoS attacks
+
+I was really amazed by how sophisticated the defense is here.
+After making the call to 'iframe.php', I got a puzzle in Javascript code and 
+this is typical CPP which protects attacker's server from DoS attacks.
+
+Then I stopped from this point since I didn't wanna spend more time on this puzzle script.
+I saw a function called 'AES' and it could possibly a 
+<a href="https://en.bitcoin.it/wiki/Proof_of_work"><b>[proof of work]</b></a> kind of puzzle,
+in which clients need to guess the token by hashing the key again and again until it matches.
+
+### Summary
+From this research, I found I have more things to learn and somehow respect those hackers
+who sent phishing mails and had set up these amazing security measurement to protect themselves from another hackers.

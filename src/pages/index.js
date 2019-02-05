@@ -53,7 +53,7 @@ const IndexPage = props => {
         <Hero>
           <h1>Hi.</h1>
           <p>
-            I&apos;m Warren, a Senior Full-Stack Developer, Hacker.
+            I&apos;m Warren, a System Architect, Hacker.
             <br />
             I have built{' '}
             <HyperLink>
