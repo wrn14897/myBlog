@@ -88,7 +88,7 @@ const Layout = props => {
             <Footer>
               &copy; 2019 by Warren. All rights reserved. <br />
               <div>
-                <a href="https://angel.co/wrn14897-hotmail-com" target="__blank">
+                <a href="https://angel.co/warrenjo" target="__blank">
                   <FaAngellist />
                 </a>
                 {'   '}
