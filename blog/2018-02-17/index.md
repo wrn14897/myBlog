@@ -22,17 +22,20 @@ The following is one example,
 <br />
 in <a href="https://www.ptt.cc/bbs/Soft_Job/index.html" target="__blank">Soft_Job</a> board, people are talking about software jobs and sharing interview experiences.
 
-<iframe src="https://www.ptt.cc/bbs/Soft_Job/index.html" style="width: 100%; height: 30em" ></iframe>
-
-
-
+<iframe 
+  src="https://www.ptt.cc/bbs/Soft_Job/index.html"
+  style="width: 100%; height: 30em"
+></iframe>
 
 #### Articles
 Article can be published by those users who have privilege (rules vary based on board).
 <br />
 Let's take a look at one example first.
 
-<iframe src="https://www.ptt.cc/bbs/Soft_Job/M.1550137685.A.E1A.html" style="width: 100%; height: 30em" ></iframe>
+<iframe 
+  src="https://www.ptt.cc/bbs/Soft_Job/M.1550137685.A.E1A.html"
+  style="width: 100%; height: 30em"
+></iframe>
 
 On the top nav bar, we can see "author"[作者], "title"[標題], "datetime"[時間].
 <br />
