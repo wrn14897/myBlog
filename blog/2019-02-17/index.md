@@ -3,7 +3,9 @@ date: "2019-02-17"
 title: "Introduce PttBrain"
 category: "PttBrain"
 ---
-Before going into the PttBrain product,
+
+
+Before jumping into the PttBrain product,
 I would like to talk about 
 what <a href="https://www.ptt.cc/bbs/hotboards.html" target="__blank">PTT</a> is a little bit.
 
