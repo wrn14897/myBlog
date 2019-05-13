@@ -53,11 +53,11 @@ const IndexPage = props => {
         <Hero>
           <h1>Hi.</h1>
           <p>
-            I&apos;m Warren, a System Architect, Hacker.
+            I&apos;m Warren Jonhow Lee, a System Architect, Hacker.
             <br />
             I have built{' '}
             <HyperLink>
-              <a href="https://chartmetric.io/landing" target="_blank">
+              <a href="https://chartmetric.com" target="_blank">
                 Chartmetric.com
               </a>
             </HyperLink>
@@ -66,7 +66,8 @@ const IndexPage = props => {
               <a href="https://www.pttbrain.com" target="_blank">
                 PttBrain.com
               </a>
-            </HyperLink>.
+            </HyperLink>
+            {' '}from the ground up.
           </p>
           {/* <Link to="/contact">
             <Button big>
