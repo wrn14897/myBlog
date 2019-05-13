@@ -66,10 +66,27 @@ Meanwhile, we need to cache the solution for each subproblem.
 '''
 def knapSackDP(W, wt, val, n):
   cache = [[0] * (W + 1) for x in range(n + 1)]
+  for i in range(n + 1):
+    for wi in range(W + 1):
+      if i == 0 or wi == 0:
+        cache[i][wi] = 0
+        break
 
+      lastWeight = wt[i - 1]
+      lastValue = val[i - 1]
+      if (wi - lastWeight) < 0:
+        cache[i][wi] = cache[i - 1][wi]
+      else:
+        cache[i][wi] = max(
+          lastValue + cache[i - 1][wi - lastWeight],
+          cache[i - 1][wi]
+        )
+  return cache[n][W]
 ```
-
-
+#### Complexity
+Space: O(n * W)
+<br />
+Time: O(n * W)
 
 ### Summary
 
