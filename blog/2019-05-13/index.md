@@ -50,7 +50,7 @@ def knapSackRec(W, wt, val, n):
 #### Complexity
 To analyze the time complexity, let's begin with very simple case.
 <br />
-Assuming <b>W = 2</b>, <b>n = 3</b>. Then we can expand subproblems below:
+Assuming <b>W = 2</b>, <b>n = 3</b>, <b>wi = [1, 1, 1]</b>. Then we can expand subproblems below:
 ```
                         K(3, 2)  ---------> K(n, W)
                    /            \ 
