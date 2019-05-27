@@ -48,11 +48,28 @@ def knapSackRec(W, wt, val, n):
 ```
 
 #### Complexity
+To analyze the time complexity, let's begin with very simple case.
+<br />
+Assuming <b>W = 2</b>, <b>n = 3</b>. Then we can expand subproblems below:
+```
+                        K(3, 2)  ---------> K(n, W)
+                   /            \ 
+                 /                \               
+            K(2,2)                  K(2,1)
+          /       \                  /    \ 
+        /           \              /        \
+       K(1,2)      K(1,1)        K(1,1)     K(1,0)
+       /  \         /   \          /   \
+     /      \     /       \      /       \
+K(0,2)  K(0,1)  K(0,1)  K(0,0)  K(0,1)   K(0,0)
+```
+Time: O(2 ^ n)
+
 
 
 ### DP Solution
 #### Idea
-Algorithm wise, we will use the idea inspired by recursive solution.
+Speaking of algorithm part, we will use the idea inspired by recursive solution.
 <br />
 Meanwhile, we need to cache the solution for each subproblem.
 
@@ -88,6 +105,5 @@ Space: O(n * W)
 <br />
 Time: O(n * W)
 
-### Summary
 
 
