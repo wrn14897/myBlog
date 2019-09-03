@@ -2,7 +2,7 @@
   "name": "gatsby-starter-minimal-blog",
   "description": "Gatsby Starter - Minimal Blog",
   "version": "1.0.0",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "author": "Warren <wrn14897@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^2.0.0-beta.55",

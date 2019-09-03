@@ -58,16 +58,24 @@ const IndexPage = props => {
             I have built{' '}
             <HyperLink>
               <a href="https://chartmetric.com" target="_blank">
-                Chartmetric.com
+                Chartmetric
               </a>
             </HyperLink>
             <span> & </span>
             <HyperLink>
-              <a href="https://www.pttbrain.com" target="_blank">
-                PttBrain.com
+              <a href="https://www.pttbrain.com/about_us" target="_blank">
+                PttBrain
               </a>
             </HyperLink>
             {' '}from the ground up.
+            <br />
+            I'm working as a software engineer
+            <span> @ </span>
+            <HyperLink>
+              <a href="https://www.parabola.io" target="_blank">
+                Parabola
+              </a>
+            </HyperLink>
           </p>
           {/* <Link to="/contact">
             <Button big>
