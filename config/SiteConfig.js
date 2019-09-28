@@ -3,7 +3,7 @@ module.exports = {
 
   siteTitle: "Warren's Blog", // Navigation and Site Title
   siteTitleAlt: '', // Alternative Site title for SEO
-  siteUrl: 'https://warrenjonhowlee.netlify.com', // Domain of your site. No trailing slash!
+  siteUrl: 'https://www.warrencodes.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteBanner: '/social/banner.png',
   siteDescription: 'Warren Codes',
