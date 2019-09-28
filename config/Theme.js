@@ -1,5 +1,5 @@
 const theme = {
-  primary: '#d02e77',
+  primary: '#1A5276',
   bg: 'white',
   dark: 'rgba(0, 0, 0, 0.9)',
   default: 'rgba(0, 0, 0, 0.7)',

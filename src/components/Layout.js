@@ -3,7 +3,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
-import { FaGithub, FaAngellist } from 'react-icons/fa';
+import { FaGithub, FaAngellist, FaLinkedin } from 'react-icons/fa';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import SEO from '../components/SEO';
 import theme from '../../config/Theme';
@@ -88,6 +88,10 @@ const Layout = props => {
             <Footer>
               &copy; 2019 by Warren. All rights reserved. <br />
               <div>
+                <a href="https://www.linkedin.com/in/warren-jonhow-lee-7b91b3187" target="__blank">
+                  <FaLinkedin />
+                </a>
+                {'   '}
                 <a href="https://angel.co/warrenjo" target="__blank">
                   <FaAngellist />
                 </a>
