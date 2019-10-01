@@ -116,4 +116,4 @@ in which clients need to guess the token by hashing the key again and again unti
 
 ### Summary
 From this research, I found I have more things to learn and somehow respect those hackers
-who sent phishing mails and had set up these amazing security measurement to protect themselves from another hackers.
+who sent phishing mails and had set up these amazing security layers to protect themselves from another hackers.
