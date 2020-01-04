@@ -26,8 +26,7 @@ Let's get to it step by step.
 
 See, this could even be a great interview quesiton ! 😎
 
-Obviously, the traversal algorithm is going to be <a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank"><b>BFS</b></a>
-Below is the implementation.
+Obviously, the traversal algorithm is going to be <a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank"><b>BFS</b></a>. Below is the implementation.
 ```py
 
 def build_category_tree(depth):
