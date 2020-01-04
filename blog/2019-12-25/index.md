@@ -109,7 +109,7 @@ Below is the screenshot of new metric introduced at board main page.
 Next thing will be using a recursive query to find board's parent categories 
 and use that to find user's interests and behavior patterns.
 
-CHEEEERS !!!
+CHEEERS !!!
 
 <div>
   <img 
