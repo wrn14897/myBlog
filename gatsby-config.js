@@ -10,8 +10,16 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'post',
+        path: `${__dirname}/blog`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-page-creator',
       options: {
         name: 'post',
         path: `${__dirname}/blog`,
