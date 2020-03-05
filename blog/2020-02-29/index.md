@@ -4,8 +4,8 @@ title: "Transfer Domain From GoDaddy to AWS Route53"
 category: "DevOps"
 ---
 
-#### A Sad Story
-I wrote this article to record a lesson I've learned due to my stupidity.
+#### It Began with a Sad Story
+I wrote this article to memorize a lesson I've learned due to my stupidity.
 <br />
 The store was, two weeks ago I tried to transfer 
 my domain (pttbrain.com) registrar from GoDaddy to AWS Route53. 
@@ -61,4 +61,7 @@ Here is how I set it up
 4. Navigate back to Route53 
 5. Add a 'A' record with alias target equal to Cludfront distribution
 
-And that's it.
+And that's it. Hopefully this article could help someone like me in the future.
+<div style="width:100%;height:0;padding-bottom:55%;position:relative;">
+  <iframe src="https://giphy.com/embed/3XiQswSmbjBiU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
