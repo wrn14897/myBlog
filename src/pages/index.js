@@ -69,7 +69,7 @@ const IndexPage = props => {
             </HyperLink>
             {' '}from the ground up.
             <br />
-            I'm working as a software engineer
+            Currently a software engineer
             <span> @ </span>
             <HyperLink>
               <a href="https://www.parabola.io" target="_blank">
@@ -117,7 +117,7 @@ export const IndexQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "MM/DD/YYYY")
             category
           }
           excerpt(pruneLength: 200)

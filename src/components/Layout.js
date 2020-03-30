@@ -75,7 +75,7 @@ const Layout = props => {
       query={graphql`
         query LayoutQuery {
           site {
-            buildTime(formatString: "DD.MM.YYYY")
+            buildTime(formatString: "MM/DD/YYYY")
           }
         }
       `}
@@ -86,7 +86,7 @@ const Layout = props => {
             {children}
             <ScrollUpButton />
             <Footer>
-              &copy; 2019 by Warren. All rights reserved. <br />
+              &copy; 2020 by Warren. All rights reserved. <br />
               <div>
                 <a href="https://www.linkedin.com/in/warren-jonhow-lee-7b91b3187" target="__blank">
                   <FaLinkedin />
