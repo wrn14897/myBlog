@@ -55,7 +55,7 @@ const IndexPage = props => {
           <p>
             I&apos;m Warren Jonhow Lee, a System Architect, Hacker.
             <br />
-            I have built{' '}
+            I&apos;ve built{' '}
             <HyperLink>
               <a href="https://chartmetric.com" target="_blank">
                 Chartmetric
@@ -69,7 +69,7 @@ const IndexPage = props => {
             </HyperLink>
             {' '}from the ground up.
             <br />
-            Currently a software engineer
+            Currently working
             <span> @ </span>
             <HyperLink>
               <a href="https://www.parabola.io" target="_blank">
