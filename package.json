@@ -2,9 +2,6 @@
   "name": "WarrenCodeBlog",
   "description": "Built with Gatsby",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.18.1"
-  },
   "author": "Warren <wrn14897@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.5.3",
