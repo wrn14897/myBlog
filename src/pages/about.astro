@@ -1,0 +1,37 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import Terminal from '../components/Term.jsx';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+      <p>
+        I'm Warren Lee, the co-founder of DeploySentinel, Inc. (YC S22).
+      </p>
+      <p>
+        I spend most of my time on building <a href="https://hyperdx.io" target="_blank">HyperDX</a>, 
+        the only production monitoring & debugging platform developers will need.
+      </p>
+      <p>
+        I've also built the E2E tests debugging platform <a href="https://deploysentinel.com" target="_blank">DeploySentinel</a>
+        and the leading music data analytics platform <a href="https://chartmetric.com" target="_blank">Chartmetric</a>.
+      </p>
+      <p>
+        When I have spare time, I'm building the data analytics platform that targets social media (PTT, Dcard) in Taiwan <a href="https://pttbrain.com" target="_blank">PTTBrain</a>
+        or playing with my cat "Mudo".
+      </p>
+
+      <img src="/mudo.jpg" alt="Mudo">
+		</main>
+	</body>
+</html>

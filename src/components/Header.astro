@@ -1,0 +1,34 @@
+---
+import GHIcon from '@astropub/icons/GitHubLogo';
+import LightningBoltIcon from '@astropub/icons/LightningBolt';
+import PersonIcon from '@astropub/icons/Person';
+
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+	<h2>
+		{SITE_TITLE}
+	</h2>
+
+	<nav>
+		<HeaderLink href="/">
+      <LightningBoltIcon size="25" />
+    </HeaderLink>
+		<HeaderLink href="/about">
+      <PersonIcon size="25" />
+    </HeaderLink>
+		<HeaderLink href="https://github.com/wrn14897" target="_blank">
+      <GHIcon size="25" />
+    </HeaderLink>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0em 0 2em;
+	}
+	h2 {
+		margin: 0.5em 0;
+	}
+</style>

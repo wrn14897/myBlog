@@ -1,0 +1,21 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import Terminal from '../components/Term.jsx';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+      <Terminal client:load />
+		</main>
+	</body>
+</html>
