@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import netlify from "@astrojs/netlify/functions";
+import vercelEdge from '@astrojs/vercel/edge';
 
 import react from "@astrojs/react";
 
@@ -9,6 +9,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: 'https://warrencodes.com',
   integrations: [mdx(), sitemap(), react()],
-  output: "server",
-  adapter: netlify()
+  output: 'server',
+  adapter: vercelEdge(),
 });
