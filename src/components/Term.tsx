@@ -3,7 +3,12 @@ import Terminal, { ColorMode, TerminalInput, TerminalOutput } from "react-termin
 
 const TerminalController = (props = {}) => {
   const [terminalLineData, setTerminalLineData] = useState([
-    <TerminalOutput>🐱 Hi there !! Type 'h' to see all commands...</TerminalOutput>,
+    <TerminalOutput>
+      🐱 Hi there !!
+    </TerminalOutput>,
+    <TerminalOutput>
+      Type 'h' to see commands...
+    </TerminalOutput>,
   ]);
 
   const onInput = (terminalInput: string) => {
