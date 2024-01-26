@@ -7,7 +7,7 @@ const TerminalController = (props = {}) => {
       🐱 Hi there !!
     </TerminalOutput>,
     <TerminalOutput>
-      Type 'h' to see commands...
+      Type 'help' or 'h' to see commands...
     </TerminalOutput>,
   ]);
 
@@ -23,7 +23,7 @@ const TerminalController = (props = {}) => {
           <TerminalOutput>"hdx" [What is HyperDX]</TerminalOutput>,
           <TerminalOutput>"ds" [What is DeploySentinel]</TerminalOutput>,
           <TerminalOutput>"pb" [What is PTTBrain]</TerminalOutput>,
-          <TerminalOutput>"gb" [Github Link]</TerminalOutput>,
+          <TerminalOutput>"gh" [Github Link]</TerminalOutput>,
           <TerminalOutput>"ln" [LinkedIn Link]</TerminalOutput>,
           <TerminalOutput>"clear" [clear the terminal]</TerminalOutput>,
         );
@@ -51,7 +51,7 @@ const TerminalController = (props = {}) => {
       case "pb":
         window.open('https://pttbrain.com/about_us', '_blank');
         break;
-      case "gb":
+      case "gh":
         window.open('https://github.com/wrn14897', '_blank');
         break;
       case "ln":
