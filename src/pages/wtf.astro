@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<main>
+      <h4>2024 九月 我遇到了我生命中最重要的你 Tiffany<h4>
+      <img src="/wtf/tiffany-first.jpg" style="border-radius: 16px;" >
+      <h4>我們走過了Napa 那天你在如何忙於工作還是擠出時間陪我晚上看恐怖片</h4>
+      <video controls style="border-radius: 16px; max-width: 100%; height: auto;">
+        <source src="/wtf/napa.mp4" type="video/mp4">
+      </video>
+      <h4>Chicago 我們喝的微醺 你問我說 '是我漂亮還是這城市夜景漂亮' 我很害羞回答 '你吧'</h4>
+      <img src="/wtf/chicago.jpg" style="border-radius: 16px;" >
+      <h4>Halloween, 我們裝扮Harley and Joker, 在Allen walker演場會 你讓我感到年輕的活力</h4>
+      <img src="/wtf/halloween.jpg" style="border-radius: 16px;" >
+      <h4>Christmas, 你陪我在我家佈置了聖誕樹</h4>
+      <img src="/wtf/xmas.jpg" style="border-radius: 16px;" >
+		</main>
+	</body>
+</html>
