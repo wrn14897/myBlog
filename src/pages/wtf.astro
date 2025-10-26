@@ -9,21 +9,110 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			body {
+				background: #fff5f7;
+				min-height: 100vh;
+				font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			}
+			main {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 60px 20px;
+			}
+			.section {
+				margin-bottom: 40px;
+				animation: fadeIn 0.6s ease-in;
+			}
+			.section h4 {
+				font-size: 1.2rem;
+				line-height: 1.8;
+				color: #333;
+				margin: 0 0 30px 0;
+				text-align: center;
+				font-weight: 400;
+			}
+			.section img, .section video {
+				width: 100%;
+				border-radius: 32px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+				display: block;
+				margin: 0 auto;
+			}
+			.section video {
+				max-height: 600px;
+			}
+			.header {
+				text-align: center;
+				margin-bottom: 60px;
+			}
+			.header h4 {
+				font-size: 1.5rem;
+				font-weight: 500;
+				color: #222;
+			}
+			@keyframes fadeIn {
+				from { opacity: 0; transform: translateY(20px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+		</style>
 	</head>
 	<body>
 		<main>
-      <h4>2024 九月 我遇到了我生命中最重要的你 Tiffany<h4>
-      <img src="/wtf/tiffany-first.jpg" style="border-radius: 16px;" >
-      <h4>我們走過了Napa 那天你在如何忙於工作還是擠出時間陪我晚上看恐怖片</h4>
-      <video controls style="border-radius: 16px; max-width: 100%; height: auto;">
-        <source src="/wtf/napa.mp4" type="video/mp4">
-      </video>
-      <h4>Chicago 我們喝的微醺 你問我說 '是我漂亮還是這城市夜景漂亮' 我很害羞回答 '你吧'</h4>
-      <img src="/wtf/chicago.jpg" style="border-radius: 16px;" >
-      <h4>Halloween, 我們裝扮Harley and Joker, 在Allen walker演場會 你讓我感到年輕的活力</h4>
-      <img src="/wtf/halloween.jpg" style="border-radius: 16px;" >
-      <h4>Christmas, 你陪我在我家佈置了聖誕樹</h4>
-      <img src="/wtf/xmas.jpg" style="border-radius: 16px;" >
+			<div class="header">
+				<h4>2024 九月 我遇到了我生命中最重要的你 Tiffany</h4>
+			</div>
+
+			<div class="section">
+				<img src="/wtf/tiffany-first.jpg" alt="Tiffany">
+			</div>
+
+			<div class="section">
+				<h4>我們走過了Napa 那天你在如何忙於工作還是擠出時間陪我晚上看恐怖片👻</h4>
+				<video controls>
+					<source src="/wtf/napa.mp4" type="video/mp4">
+				</video>
+			</div>
+
+			<div class="section">
+				<h4>Chicago 我們喝的微醺 你問我說 '是我漂亮還是這城市夜景漂亮' 我很害羞回答 '你吧'😊</h4>
+				<img src="/wtf/chicago.jpg" alt="Chicago">
+			</div>
+
+			<div class="section">
+				<h4>Halloween, 我們裝扮Harley and Joker, 在Allen walker演場會 你讓我感到年輕的活力</h4>
+				<img src="/wtf/halloween.jpg" alt="Halloween">
+			</div>
+
+			<div class="section">
+				<h4>Christmas, 你陪我在我家佈置了聖誕樹</h4>
+				<img src="/wtf/xmas.jpg" alt="Christmas">
+			</div>
+
+			<div class="section">
+				<h4>2024年底, 你帶我體驗了人生第一次滑雪, 我們都摔個半死, 但我們都很倔, 爬起來繼續滑, 我希望我們的感情也是如此, 我們無論如何, 都會爬起來 繼續往前</h4>
+				<img src="/wtf/snow1.jpg" alt="Snow 1">
+			</div>
+
+			<div class="section">
+				<img src="/wtf/snow2.jpg" alt="Snow 2">
+			</div>
+
+			<div class="section">
+				<h4>儘管 這些期間 我還是Founder 你了解我既沒有時間又窮 你還是選擇了我🥺</h4>
+				<h4>2025是個神奇的一年 我們都經歷了人生重大的轉變</h4>
+        <h4>我們一起去了Vegas 讓你破費請我吃高檔鐵板燒</h4>
+				<img src="/wtf/vegas.jpg" alt="Vegas">
+			</div>
+
+			<div class="section">
+        <h4>因為妳 我有機會去了一趟美麗的Yosemite 儘管我當時工作很忙 你還是體諒我 開車載我 為了讓我多放鬆 幫我減輕壓力</h4>
+				<img src="/wtf/yos.jpg" alt="Vegas">
+			</div>
+
+			<div class="section">
+        <h4>同個月 我們第一次 一起出國旅行 來到西班牙 雖然說碰到大停電 我們還有些小紛爭 但我還是感到很幸福 有你帶我走過世界的角落</h4>
+        <img src="/wtf/spain.jpg" alt="Spain">
 		</main>
 	</body>
 </html>
