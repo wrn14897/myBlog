@@ -55,7 +55,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				from { opacity: 0; transform: translateY(20px); }
 				to { opacity: 1; transform: translateY(0); }
 			}
+			#ring-container {
+				width: 100%;
+				height: 400px;
+				margin: 60px 0;
+			}
 		</style>
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<main>
@@ -113,6 +126,124 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<div class="section">
         <h4>同個月 我們第一次 一起出國旅行 來到西班牙 雖然說碰到大停電 我們還有些小紛爭 但我還是感到很幸福 有你帶我走過世界的角落</h4>
         <img src="/wtf/spain.jpg" alt="Spain">
+			</div>
+
+			<div class="section">
+        <h4>2025 我們去過好多國家 帶給我好多美好的回憶 我很難想像沒有的日子 我仍然是在井裡的青蛙</h4>
+        <img src="/wtf/cabo.jpg" alt="cabo">
+        <br>
+        <img src="/wtf/hawaii.jpg" alt="hawaii">
+			</div>
+
+			<div class="section">
+        <h4>我想要說的是</h4>
+        <h4>我感到無比幸運 能夠遇到 真正愛我並關心我的你</h4>
+        <h4>我相信 我們的不同讓彼此更完整 也讓我們在相互學習中不斷成長</h4>
+        <h4>我保證 無論遇到什麼樣的困難 我都會 在你身旁 一起解決面對</h4>
+        <h4>你是我生命中最重要的一切</h4>
+        <h4>我願意用我的一生 愛你 照顧你 支持你</h4>
+        <h4>Tiffany 你願意</h4>
+        <h4>嫁給我 並且繼續我們的故事嗎?</h4>
+			</div>
+
+			<div id="ring-container"></div>
 		</main>
+
+		<script type="module">
+			import * as THREE from 'three';
+
+			const container = document.getElementById('ring-container');
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+			const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+			renderer.setSize(container.clientWidth, container.clientHeight);
+			renderer.setClearColor(0x000000, 0);
+			container.appendChild(renderer.domElement);
+
+			// Create Tiffany box
+			const boxGeometry = new THREE.BoxGeometry(2, 0.5, 1.5);
+			const boxMaterial = new THREE.MeshStandardMaterial({
+				color: 0x7CEECE,
+				metalness: 0.2,
+				roughness: 0.5
+			});
+			const box = new THREE.Mesh(boxGeometry, boxMaterial);
+			box.position.y = -1;
+			scene.add(box);
+
+			// Create ribbon
+			const ribbonGeometry = new THREE.BoxGeometry(2.05, 0.1, 0.2);
+			const ribbonMaterial = new THREE.MeshStandardMaterial({
+				color: 0xffffff,
+				metalness: 0.3,
+				roughness: 0.4
+			});
+			const ribbon = new THREE.Mesh(ribbonGeometry, ribbonMaterial);
+			ribbon.position.y = -0.75;
+			scene.add(ribbon);
+
+			// Create ring group
+			const ringGroup = new THREE.Group();
+			ringGroup.position.y = 0.5;
+			scene.add(ringGroup);
+
+			// Create ring band
+			const ringGeometry = new THREE.TorusGeometry(1, 0.1, 16, 100);
+			const ringMaterial = new THREE.MeshStandardMaterial({
+				color: 0xffffff,
+				metalness: 0.95,
+				roughness: 0.05,
+				emissive: 0x888888,
+				emissiveIntensity: 0.1
+			});
+			const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+			ringGroup.add(ring);
+
+			// Create diamond on top of ring
+			const diamondGeometry = new THREE.OctahedronGeometry(0.3);
+			const diamondMaterial = new THREE.MeshPhysicalMaterial({
+				color: 0xffffdd,
+				metalness: 0.1,
+				roughness: 0,
+				transmission: 0.7,
+				thickness: 0.5,
+				clearcoat: 1,
+				clearcoatRoughness: 0,
+				emissive: 0xffff88,
+				emissiveIntensity: 0.2
+			});
+			const diamond = new THREE.Mesh(diamondGeometry, diamondMaterial);
+			diamond.position.y = 1.4;
+			ringGroup.add(diamond);
+
+			// Lighting
+			const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+			scene.add(ambientLight);
+
+			const pointLight1 = new THREE.PointLight(0xffffff, 1);
+			pointLight1.position.set(5, 5, 5);
+			scene.add(pointLight1);
+
+			const pointLight2 = new THREE.PointLight(0xffb6c1, 0.5);
+			pointLight2.position.set(-5, -5, 5);
+			scene.add(pointLight2);
+
+			camera.position.z = 3;
+
+			function animate() {
+				requestAnimationFrame(animate);
+				ringGroup.rotation.y += 0.01;
+				ringGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.3;
+				renderer.render(scene, camera);
+			}
+			animate();
+
+			window.addEventListener('resize', () => {
+				camera.aspect = container.clientWidth / container.clientHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(container.clientWidth, container.clientHeight);
+			});
+		</script>
 	</body>
 </html>
