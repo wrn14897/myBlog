@@ -153,6 +153,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 		<script type="module">
 			import * as THREE from 'three';
+			import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 			const container = document.getElementById('ring-container');
 			const scene = new THREE.Scene();
@@ -163,31 +164,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			renderer.setClearColor(0x000000, 0);
 			container.appendChild(renderer.domElement);
 
-			// Create Tiffany box
-			const boxGeometry = new THREE.BoxGeometry(2, 0.5, 1.5);
+			// Create rounded box
+			const boxGeometry = new RoundedBoxGeometry(2, 1, 1.5, 10, 0.15);
 			const boxMaterial = new THREE.MeshStandardMaterial({
-				color: 0x7CEECE,
-				metalness: 0.2,
-				roughness: 0.5
+				color: 0xe0fffa,
+				metalness: 0.1,
+				roughness: 0.1,
+				emissive: 0xa0e7e0,
+				emissiveIntensity: 0.6
 			});
 			const box = new THREE.Mesh(boxGeometry, boxMaterial);
 			box.position.y = -1;
 			scene.add(box);
 
-			// Create ribbon
-			const ribbonGeometry = new THREE.BoxGeometry(2.05, 0.1, 0.2);
-			const ribbonMaterial = new THREE.MeshStandardMaterial({
-				color: 0xffffff,
-				metalness: 0.3,
-				roughness: 0.4
-			});
-			const ribbon = new THREE.Mesh(ribbonGeometry, ribbonMaterial);
-			ribbon.position.y = -0.75;
-			scene.add(ribbon);
-
 			// Create ring group
 			const ringGroup = new THREE.Group();
-			ringGroup.position.y = 0.5;
+			ringGroup.position.y = 0.6;
 			scene.add(ringGroup);
 
 			// Create ring band
@@ -195,9 +187,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			const ringMaterial = new THREE.MeshStandardMaterial({
 				color: 0xffffff,
 				metalness: 0.95,
-				roughness: 0.05,
-				emissive: 0x888888,
-				emissiveIntensity: 0.1
+				roughness: 0.02,
+				emissive: 0xf5f5f5,
+				emissiveIntensity: 0.6
 			});
 			const ring = new THREE.Mesh(ringGeometry, ringMaterial);
 			ringGroup.add(ring);
@@ -205,22 +197,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			// Create diamond on top of ring
 			const diamondGeometry = new THREE.OctahedronGeometry(0.3);
 			const diamondMaterial = new THREE.MeshPhysicalMaterial({
-				color: 0xffffdd,
+				color: 0xff69b4,
 				metalness: 0.1,
 				roughness: 0,
 				transmission: 0.7,
 				thickness: 0.5,
 				clearcoat: 1,
 				clearcoatRoughness: 0,
-				emissive: 0xffff88,
-				emissiveIntensity: 0.2
+				emissive: 0xd91e78,
+				emissiveIntensity: 0.3
 			});
 			const diamond = new THREE.Mesh(diamondGeometry, diamondMaterial);
 			diamond.position.y = 1.4;
 			ringGroup.add(diamond);
 
+
 			// Lighting
-			const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+			const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
 			scene.add(ambientLight);
 
 			const pointLight1 = new THREE.PointLight(0xffffff, 1);
@@ -236,7 +229,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			function animate() {
 				requestAnimationFrame(animate);
 				ringGroup.rotation.y += 0.01;
-				ringGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.3;
 				renderer.render(scene, camera);
 			}
 			animate();
